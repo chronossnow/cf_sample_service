@@ -1,4 +1,4 @@
-pplications:
+applications:
 - name: cf_sample_service
   memory: 512M
   instances: 1
