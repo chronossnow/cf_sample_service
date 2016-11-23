@@ -1,0 +1,48 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven { url "http://repo.maven.apache.org/maven2" }
+        maven { url "http://repo.spring.io/snapshot" }
+        maven { url "http://repo.spring.io/milestone" }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.0.BUILD-SNAPSHOT")
+    }
+}
+apply plugin: "java"
+apply plugin: "eclipse"
+apply plugin: "idea"
+apply plugin: "org.springframework.boot"
+eclipse {
+	classpath {
+		containers "org.springsource.ide.eclipse.gradle.classpathcontainer"
+	}
+}
+jar {
+	baseName = "cf_sample"
+	version =  "1.0.0"
+}
+repositories {
+    jcenter()
+    maven { url "http://repo.maven.apache.org/maven2" }
+    maven { url "http://repo.spring.io/snapshot" }
+    maven { url "http://repo.spring.io/milestone" }
+}
+dependencies {
+	compile("org.springframework.boot:spring-boot-starter")
+	compile("org.springframework.boot:spring-boot-starter-web")
+	compile("org.springframework.boot:spring-boot-starter-jetty")
+	compile("org.springframework.boot:spring-boot-starter-jdbc")
+	compile("org.springframework.boot:spring-boot-starter-data-jpa")
+	compile("org.eclipse.persistence:eclipselink:2.6.3")
+	compile("com.fasterxml.jackson.core:jackson-annotations:2.8.4")
+	compile("com.fasterxml.jackson.core:jackson-databind:2.8.4")
+	compile("com.fasterxml.jackson.core:jackson-core:2.8.4")
+	compile("org.aspectj:aspectjweaver:1.8.9")
+	compile("org.projectlombok:lombok:1.16.10")
+	compile("com.h2database:h2:1.4.193")
+	testCompile("org.powermock:powermock-module-junit4:1.6.5")
+	testCompile("org.powermock:powermock-api-mockito:1.6.5")
+	testCompile("com.jayway.jsonpath:json-path:2.2.0")
+	testCompile("org.springframework.boot:spring-boot-starter-test")
+}
